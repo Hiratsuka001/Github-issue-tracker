@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+      * {
+        font-family: "Geist", sans-serif;
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image" href="assets/github-logo.png" />
+    <title>Github Issue Tracker</title>
+  </head>
+
+  <body class="min-h-screen bg-base-200">
+    <header>
+      <div
+        class="navbar justify-between bg-base-100 shadow-sm px-4 flex-col gap-3 sm:flex-row sm:gap-0"
+      >
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <div class="avatar">
+            <div class="w-10 rounded-full bg-white p-1">
+              <img src="assets/github-logo.png" alt="GitHub logo" />
+            </div>
+          </div>
+
+          <h1 class="text-lg sm:text-xl font-bold py-2">
+            GitHub Issues Tracker
+          </h1>
+        </div>
+
+        <div
+          class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto sm:items-center sm:justify-end"
+        >
+          <label
+            class="input input-bordered flex items-center gap-2 w-full sm:w-80"
+          >
+            <i class="fa-solid fa-magnifying-glass text-base-content/60"></i>
+            <input
+              id="searchInput"
+              type="text"
+              class="grow"
+              placeholder="Search issues..."
+            />
+          </label>
+
+          <button id="newIssueBtn" class="btn btn-primary w-full sm:w-auto">
+            <i class="fa-solid fa-plus"></i>
+            New Issue
+          </button>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
