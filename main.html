@@ -75,5 +75,83 @@
         </div>
       </div>
     </header>
+    <main>
+      <section class="p-4">
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-base-100 shadow-sm rounded-xl p-6">
+            <div class="join w-full gap-2 sm:w-auto">
+              <button
+                id="filterAll"
+                class="btn join-item btn-primary sm:w-auto"
+              >
+                All
+              </button>
+              <button
+                id="filterOpen"
+                class="btn join-item btn-outline sm:w-auto"
+              >
+                Open
+              </button>
+              <button
+                id="filterClosed"
+                class="btn join-item btn-outline sm:w-auto"
+              >
+                Closed
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="p-4">
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-base-100 shadow-sm rounded-xl">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-5"
+            >
+              <div class="flex items-center gap-2">
+                <div class="avatar">
+                  <div
+                    class="w-12 rounded-full bg-primary/10 flex items-center justify-center"
+                  >
+                    <img
+                      src="assets/Aperture.png"
+                      alt="Aperture icon"
+                      class="w-6 h-6 object-contain"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <h2 class="text-lg sm:text-xl font-bold">
+                    <span id="issuesCount">50</span> Issues
+                  </h2>
+                  <p class="text-sm text-base-content/60">
+                    Track and manage your project issues
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-x-6 gap-y-2 sm:justify-end">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="w-3 h-3 rounded-full bg-[#068606] inline-block"
+                  ></span>
+                  <span class="font-semibold">Open</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <span
+                    class="w-3 h-3 rounded-full bg-[#8e06ce] inline-block"
+                  ></span>
+                  <span class="font-semibold">Closed</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-t border-base-300"></div>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
