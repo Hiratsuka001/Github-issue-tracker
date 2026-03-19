@@ -55,7 +55,16 @@ cardsContainer.onclick = function (e) {
   openIssueModalFromAPI(id);
 };
 
+function showSpinner() {
+  cardsContainer.innerHTML =
+    '<div class="col-span-full flex justify-center py-10">' +
+    '<span class="loading loading-bars loading-xl"></span>' +
+    "</div>";
+}
+
 function loadIssues() {
+  showSpinner();
+
   fetch(API_URL)
     .then(function (res) {
       return res.json();
@@ -68,14 +77,20 @@ function loadIssues() {
 }
 
 function searchIssuesFromAPI(searchText) {
+  showSpinner();
+
   fetch(SEARCH_URL + encodeURIComponent(searchText))
     .then(function (res) {
       return res.json();
     })
     .then(function (data) {
       allIssues = getArrayFromAPI(data);
-
       showCards();
+    })
+    .catch(function () {
+      numofissues.innerText = "0";
+      cardsContainer.innerHTML =
+        '<div class="col-span-full"><div class="alert alert-error">Search failed.</div></div>';
     });
 }
 
