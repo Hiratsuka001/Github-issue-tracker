@@ -162,6 +162,57 @@
         </div>
       </section>
     </main>
+    <dialog id="issueModal" class="modal">
+      <div class="modal-box max-w-3xl">
+        <h3 id="modalTitle" class="text-2xl font-bold">Issue Title</h3>
+
+        <div class="flex flex-wrap items-center gap-3 mt-3 text-sm">
+          <span id="modalStatusBadge" class="badge badge-success">Open</span>
+          <span class="text-base-content/60">•</span>
+          <span class="text-base-content/70">
+            Opened by <span id="modalAuthor" class="font-semibold">Author</span>
+          </span>
+          <span class="text-base-content/60">•</span>
+          <span id="modalCreatedAt" class="text-base-content/70">Date</span>
+        </div>
+
+        <div id="modalLabels" class="flex flex-wrap gap-2 mt-4"></div>
+
+        <p
+          id="modalDescription"
+          class="mt-4 text-base-content/70 leading-relaxed"
+        >
+          Description
+        </p>
+
+        <div class="bg-base-200 rounded-xl p-4 mt-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <p class="text-sm text-base-content/60">Assignee:</p>
+              <p id="modalAssignee" class="font-bold">None</p>
+            </div>
+
+            <div>
+              <p class="text-sm text-base-content/60">Priority:</p>
+              <span id="modalPriorityBadge" class="badge badge-error"
+                >HIGH</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-action">
+          <form method="dialog">
+            <button class="btn btn-primary">Close</button>
+          </form>
+        </div>
+      </div>
+
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
     <script src="cards.js"></script>
+    <script src="modal.js"></script>
   </body>
 </html>
