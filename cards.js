@@ -1,4 +1,6 @@
 const API_URL = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
+const SEARCH_URL =
+  "https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=";
 
 let allIssues = [];
 let currentFilter = "all";
@@ -9,6 +11,8 @@ const numofissues = document.getElementById("issuesCount");
 const filterAllBtn = document.getElementById("filterAll");
 const filterOpenBtn = document.getElementById("filterOpen");
 const filterClosedBtn = document.getElementById("filterClosed");
+
+const searchInput = document.getElementById("searchInput");
 
 loadIssues();
 
@@ -30,6 +34,17 @@ filterClosedBtn.onclick = function () {
   showCards();
 };
 
+searchInput.oninput = function (e) {
+  const text = e.target.value.trim();
+
+  if (text === "") {
+    loadIssues();
+    return;
+  }
+
+  searchIssuesFromAPI(text);
+};
+
 cardsContainer.onclick = function (e) {
   const card = e.target.closest(".issue-card");
   if (!card) return;
@@ -46,14 +61,29 @@ function loadIssues() {
       return res.json();
     })
     .then(function (data) {
-      if (Array.isArray(data)) allIssues = data;
-      else if (Array.isArray(data.data)) allIssues = data.data;
-      else if (Array.isArray(data.issues)) allIssues = data.issues;
-      else allIssues = [];
-
+      allIssues = getArrayFromAPI(data);
       setActiveButton();
       showCards();
     });
+}
+
+function searchIssuesFromAPI(searchText) {
+  fetch(SEARCH_URL + encodeURIComponent(searchText))
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (data) {
+      allIssues = getArrayFromAPI(data);
+
+      showCards();
+    });
+}
+
+function getArrayFromAPI(data) {
+  if (Array.isArray(data)) return data;
+  if (data && Array.isArray(data.data)) return data.data;
+  if (data && Array.isArray(data.issues)) return data.issues;
+  return [];
 }
 
 function showCards() {
@@ -184,28 +214,4 @@ function createCard(issue) {
     "</div>";
 
   return html;
-}
-
-function formatDate(dateValue) {
-  if (!dateValue) return "";
-  if (String(dateValue).includes("/")) return String(dateValue);
-
-  const d = new Date(dateValue);
-  if (isNaN(d.getTime())) return String(dateValue);
-
-  const mm = d.getMonth() + 1;
-  const dd = d.getDate();
-  const yyyy = d.getFullYear();
-  return mm + "/" + dd + "/" + yyyy;
-}
-
-function getStatus(issue) {
-  let s = issue.status || issue.state || "";
-  s = String(s).toLowerCase();
-
-  if (s === "open" || s === "closed") return s;
-  if (issue.isOpen === true) return "open";
-  if (issue.isOpen === false) return "closed";
-
-  return "open";
 }

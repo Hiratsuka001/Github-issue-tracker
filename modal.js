@@ -35,7 +35,7 @@ function fillModal(issue) {
   const createdAt =
     issue.createdAt || issue.created_at || issue.created || issue.date || "";
 
-  const assignee = issue.assignee || issue.assignedTo || "None";
+  const assignee = issue.assignee || issue.assignedTo || "N/A";
 
   modalTitle.innerText = title;
   modalAuthor.innerText = author;
@@ -69,4 +69,28 @@ function fillModal(issue) {
       String(labelsArr[i]).toUpperCase() +
       "</span>";
   }
+}
+
+function formatDate(dateValue) {
+  if (!dateValue) return "";
+  if (String(dateValue).includes("/")) return String(dateValue);
+
+  const d = new Date(dateValue);
+  if (isNaN(d.getTime())) return String(dateValue);
+
+  const mm = d.getMonth() + 1;
+  const dd = d.getDate();
+  const yyyy = d.getFullYear();
+  return mm + "/" + dd + "/" + yyyy;
+}
+
+function getStatus(issue) {
+  let s = issue.status || issue.state || "";
+  s = String(s).toLowerCase();
+
+  if (s === "open" || s === "closed") return s;
+  if (issue.isOpen === true) return "open";
+  if (issue.isOpen === false) return "closed";
+
+  return "open";
 }
