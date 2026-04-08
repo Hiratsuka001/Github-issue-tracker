@@ -6,7 +6,7 @@ A lightweight web application designed to track and manage project issues effect
 
 ### **Repository Overview (Description)**
 **GitHub Issues Tracker** – A dynamic issue management tool built with vanilla JavaScript and modern CSS frameworks.
-* **Live Link:** [Insert Live Link Here]
+* **Live Link:** https://hiratsuka001.github.io/Github-issue-tracker/
 * **Tech Stack:** JavaScript, Tailwind CSS, DaisyUI, REST API.
 
 ---
@@ -43,7 +43,7 @@ This project leverages external libraries via CDN for easy setup:
     ```
 2.  **Navigate to the project directory:**
     ```bash
-    cd repository-name
+    cd Github-issue-tracker
     ```
 3.  **Open the project:**
     Simply open the `index.html` file in any modern web browser.
