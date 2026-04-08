@@ -39,7 +39,7 @@ This project leverages external libraries via CDN for easy setup:
 ### **How to Run Locally**
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/repository-name.git
+    git clone https://github.com/Hiratsuka001/Github-issue-tracker.git
     ```
 2.  **Navigate to the project directory:**
     ```bash
