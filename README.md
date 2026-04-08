@@ -55,5 +55,5 @@ This project leverages external libraries via CDN for easy setup:
 ---
 
 ### **Relevant Links**
-**Live Demo:** [Insert Live Link Here]
+**Live Demo:** https://hiratsuka001.github.io/Github-issue-tracker/
 **API Endpoint:** [Phi Lab Server API](https://phi-lab-server.vercel.app/api/v1/lab/issues)
